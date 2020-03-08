@@ -1,0 +1,29 @@
+
+student@ubuntu:~$ sudo su -
+
+root@ubuntu:~# passwd
+
+root@ubuntu:~# mysql --user=root --password
+Enter password: 
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+
+mysql>
+
+1. Create an administrator account
+
+CREATE USER 'testadmin'@'%' IDENTIFIED BY 'password';
+
+GRANT ALL PRIVILEGES ON *.* TO 'testadmin'@'%' WITH GRANT OPTION;
+
+
+2. Create an ordinary user account
+
+CREATE USER 'teststudent'@'%' IDENTIFIED BY 'password';
+
+GRANT USAGE ON *.* TO 'teststudent'@'%';
+
+CREATE DATABASE IF NOT EXISTS `teststudent`;
+
+GRANT ALL PRIVILEGES ON `teststudent`.* TO 'teststudent'@'%';
+
+
